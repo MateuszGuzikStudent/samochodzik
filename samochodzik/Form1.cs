@@ -23,6 +23,7 @@ namespace Samochodzik
             InitializeComponent();
             originalImage = new Bitmap(pictureBox2.Image);
             rotatedImage = new Bitmap(originalImage); // Tworzymy kopię obrazka
+            pictureBox2.BringToFront();
 
         }
 
@@ -60,7 +61,7 @@ namespace Samochodzik
 
                     RightKeyPressed = true;
                     break;
-                    // Dodaj inne przypadki dla innych klawiszy, którymi chcesz sterować
+                   
             }
         }
 
@@ -81,7 +82,7 @@ namespace Samochodzik
                 case Keys.Right:
                     RightKeyPressed = false;
                     break;
-                    // Dodaj inne przypadki dla innych klawiszy, którymi chcesz sterować
+                   
             }
         }
         private bool KeyPressed = true;
@@ -91,9 +92,14 @@ namespace Samochodzik
         private bool EndGame = false;
 
 
+        private bool line1 = false;
+        private bool line2 = false;
+        private bool line3 = false;  // tutaj taki prymitywny mechanizm zeby podczas dawania samochodu od goru nie wpadaly na siebie(do poprawy oczywiscie)
+        private bool line4 = true;
+
         void moveline(int speed)
         {
-            if (pictureBox1.Top > 645)
+            if (pictureBox1.Top > 600)
             {
                 pictureBox1.Top = 0;
             }
@@ -102,7 +108,7 @@ namespace Samochodzik
                 pictureBox1.Top += speed;
             }
 
-            if (pictureBox3.Top > 645)
+            if (pictureBox3.Top > 600)
             {
                 pictureBox3.Top = 0;
             }
@@ -111,7 +117,7 @@ namespace Samochodzik
                 pictureBox3.Top += speed;
             }
 
-            if (pictureBox4.Top > 645)
+            if (pictureBox4.Top > 600)
             {
                 pictureBox4.Top = 0;
             }
@@ -120,7 +126,7 @@ namespace Samochodzik
                 pictureBox4.Top += speed;
             }
 
-            if (pictureBox5.Top > 645)
+            if (pictureBox5.Top > 600)
             {
                 pictureBox5.Top = 0;
             }
@@ -129,7 +135,7 @@ namespace Samochodzik
                 pictureBox5.Top += speed;
             }
 
-            if (pictureBox6.Top > 645)
+            if (pictureBox6.Top > 600)
             {
                 pictureBox6.Top = 0;
             }
@@ -138,7 +144,7 @@ namespace Samochodzik
                 pictureBox6.Top += speed;
             }
 
-            if (pictureBox7.Top > 645)
+            if (pictureBox7.Top > 600)
             {
                 pictureBox7.Top = 0;
             }
@@ -147,7 +153,7 @@ namespace Samochodzik
                 pictureBox7.Top += speed;
             }
 
-            if (pictureBox8.Top > 645)
+            if (pictureBox8.Top > 600)
             {
                 pictureBox8.Top = 0;
             }
@@ -156,7 +162,7 @@ namespace Samochodzik
                 pictureBox8.Top += speed;
             }
 
-            if (pictureBox9.Top > 645)
+            if (pictureBox9.Top > 600)
             {
                 pictureBox9.Top = 0;
             }
@@ -164,7 +170,7 @@ namespace Samochodzik
             {
                 pictureBox9.Top += speed;
             }
-               if (pictureBox15.Top > 645)
+               if (pictureBox15.Top > 600)
             {
                 pictureBox15.Top = 0;
             }
@@ -173,7 +179,7 @@ namespace Samochodzik
                 pictureBox15.Top += speed;
             }
 
-            if (pictureBox12.Top > 645)
+            if (pictureBox12.Top > 600)
             {
                 pictureBox12.Top = 0;
             }
@@ -182,7 +188,7 @@ namespace Samochodzik
                 pictureBox12.Top += speed;
             }
 
-            if (pictureBox18.Top > 645)
+            if (pictureBox18.Top > 600)
             {
                 pictureBox18.Top = 0;
             }
@@ -191,7 +197,7 @@ namespace Samochodzik
                 pictureBox18.Top += speed;
             }
 
-            if (pictureBox13.Top > 645)
+            if (pictureBox13.Top > 600)
             {
                 pictureBox13.Top = 0;
             }
@@ -215,23 +221,80 @@ namespace Samochodzik
                     {
                         if(Line == 1)
                         {
+                            if(line1 == true)
+                            {
+                                pictureBox.Top = 0;
+                                pictureBox.Left = 23;
+                                line1 = false;
+                                line2 = true;
+                                line3 = true;
+                                line4 = true;
+                            }
+                            else
                             pictureBox.Top = 0;
-                            pictureBox.Left = 23;
+                            pictureBox.Left = 107;
+                            line1 = true;
+                            line2 = false;
+                            line3 = true;
+                            line4 = true;
+
                         }
                         if (Line == 2)
                         {
+                            if (line2 == true)
+                            {
+                                pictureBox.Top = 0;
+                                pictureBox.Left = 107;
+                                line1 = true;
+                                line2 = false;
+                                line3 = true;
+                                line4 = true;
+                            }
+                            else
                             pictureBox.Top = 0;
-                            pictureBox.Left = 107;
+                            pictureBox.Left = 188;
+                            line1 = true;
+                            line2 = true;
+                            line3 = false;
+                            line4 = true;
                         }
                         if (Line == 3)
                         {
+                            if (line3 == true)
+                            {
+                                pictureBox.Top = 0;
+                                pictureBox.Left = 188;
+                                line1 = true;
+                                line2 = true;
+                                line3 = false;
+                                line4 = true;
+                            }
+                            else
                             pictureBox.Top = 0;
-                            pictureBox.Left = 188;
+                            pictureBox.Left = 272;
+                            line1 = true;
+                            line2 = true;
+                            line3 = true;
+                            line4 = false;
                         }
                         if (Line == 4)
                         {
+                            if (line4 == true)
+                            {
+                                pictureBox.Top = 0;
+                                pictureBox.Left = 272;
+                                line1 = true;
+                                line2 = true;
+                                line3 = true;
+                                line4 = false;
+                            }
+                            else
                             pictureBox.Top = 0;
-                            pictureBox.Left = 272;
+                            pictureBox.Left = 23;
+                            line1 = false;
+                            line2 = true;
+                            line3 = true;
+                            line4 = true;
                         }
                     }
                     pictureBox.Top = 0;
@@ -250,10 +313,13 @@ namespace Samochodzik
         }
         public int Acceleration = 0;
         private int rotationAngle = 0;
+        private double distance = 1;
         private Random random = new Random();
         private void timer1_Tick(object sender, EventArgs e)
         {
+            distance += Acceleration;
             speedLabel.Text = (Acceleration * 2).ToString(); // tu jest tempomat
+            label2.Text = distance.ToString();
             if (KeyPressed == true)
             {
                 Acceleration--;
@@ -280,7 +346,7 @@ namespace Samochodzik
 
                 if (rotationAngle >= -45 & Acceleration > 2)
                 {
-                    rotationAngle -= 7; // Zwiększamy kąt obrotu o 5 stopni
+                    rotationAngle -= 4; // Zwiększamy kąt obrotu o 5 stopni
                     RotatePictureBox(rotationAngle);
                 }
 
@@ -291,30 +357,32 @@ namespace Samochodzik
             {
                 if (rotationAngle <= 45 & Acceleration > 2)
                 {
-                    rotationAngle += 7; // Zwiększamy kąt obrotu o 5 stopni
+                    rotationAngle += 4; // Zwiększamy kąt obrotu o 5 stopni
                     RotatePictureBox(rotationAngle);
                 }
 
             }
             if (rotationAngle >= 0)
             {
-                pictureBox2.Left += (rotationAngle * Acceleration) / 30;
+                pictureBox2.Left += (rotationAngle * Acceleration) / 25;
             }
             else
             {
-                pictureBox2.Left -= (Math.Abs(rotationAngle) * Acceleration) / 30;
+                pictureBox2.Left -= (Math.Abs(rotationAngle) * Acceleration) / 25;
             }
             if(DownKeyPressed)
             {
-                Acceleration = Acceleration - (Acceleration/15);
+                Acceleration = Acceleration - (Acceleration/12);
             }
             if (CheckCollisionWithObstacles())
             {
                 if (EndGame == false)
                 {
                     EndGame = true;
-                    MessageBox.Show("Game Over! You hit an obstacle.");
+                    Acceleration = 0;
                     timer1.Stop(); // Zatrzymuje timer, aby zatrzymać grę}
+                    MessageBox.Show("Game Over! UDERZYLES");
+                    
                 }
                 
               
@@ -324,34 +392,17 @@ namespace Samochodzik
         }
         private int GenerateRandomValue()
         {
-            return random.Next(1, 40); // Generowanie losowej liczby całkowitej z przedziału od 1 do 3
+            return random.Next(1, 40); // Generowanie losowej liczby całkowitej z przedziału od 1 do 40
         }
         private int GenerateRandomValue2()
         {
-            return random.Next(1, 6); // Generowanie losowej liczby całkowitej z przedziału od 1 do 3
+            return random.Next(1, 6); // Generowanie losowej liczby całkowitej z przedziału od 1 do 6
         }
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }
-        /*private void RotatePictureBox(int angle)
-         {
-             // Tworzymy obiekt graficzny na podstawie pictureBox2
-             using (Graphics g = pictureBox2.CreateGraphics())
-             {
-                 // Czyścimy obrazek
-                g.Clear(Color.Transparent);
-                 // Ustawiamy punkt obrotu na środek pictureBox2
-                 g.TranslateTransform(pictureBox2.Width / 2, pictureBox2.Height / 2);
-                 // Obracamy pictureBox2 o zadany kąt
-                 g.RotateTransform(angle);
-                 // Przenosimy punkt obrotu z powrotem do jego pierwotnego miejsca
-                 g.TranslateTransform(-pictureBox2.Width / 2, -pictureBox2.Height / 2);
-                 // Rysujemy pictureBox2
-                 g.DrawImage(pictureBox2.Image, new Point(0, 0));
- 
-             }
-         }*/
+       
         private void RotatePictureBox(int angle)
         {
             // Tworzymy macierz transformacji
@@ -382,6 +433,12 @@ namespace Samochodzik
             Rectangle rect4 = pictureBox16.Bounds;
             Rectangle rect5 = pictureBox17.Bounds;
             Rectangle rect6 = pictureBox14.Bounds;
+
+            rect2.Inflate(-10, -10);
+            rect3.Inflate(-10, -10);
+            rect4.Inflate(-10, -10);
+            rect5.Inflate(-10, -10);
+            rect6.Inflate(-10, -10);
 
             return rect1.IntersectsWith(rect2) || rect1.IntersectsWith(rect3) || rect1.IntersectsWith(rect4) || rect1.IntersectsWith(rect4) || rect1.IntersectsWith(rect5) || rect1.IntersectsWith(rect6);
 
@@ -414,6 +471,11 @@ namespace Samochodzik
         }
 
         private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
